@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Instasave' target in the 'Instasave' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
