@@ -49,7 +49,6 @@
     //Loop through and save photos
     NSMutableArray *arrayOne = [[NSMutableArray alloc] init];
     int i = 0;
-    int k = 0;
     while (i == 0) {
         //Check if aLink exist
         if ([sourceString rangeOfString:@"distilleryimage"].location != NSNotFound) {
@@ -59,25 +58,22 @@
                 sourceString = [sourceString substringFromIndex:linkBegin1.location+15];
             }
             NSRange linkBegin = [sourceString rangeOfString:@"distilleryimage"];
-            NSRange linkEnd = [sourceString rangeOfString:@"_7.jpg"];
-            NSString *aLink=[sourceString substringWithRange:NSMakeRange(linkBegin.location, linkEnd.location-linkBegin.location)];
+            NSString *temp = [sourceString substringFromIndex:linkBegin.location];
+            NSRange linkEnd = [temp rangeOfString:@".jpg"];
+            NSString *aLink=[sourceString substringWithRange:NSMakeRange(linkBegin.location, linkEnd.location)];
             NSString *save = @"http://";
             save = [save stringByAppendingString:aLink];
-            save = [save stringByAppendingString:@"_7.jpg"];
+            save = [save stringByAppendingString:@".jpg"];
             
             //Get rid of backslash
-            NSMutableString *save2 = [NSMutableString stringWithString:save];
-            NSRange backSlash = [save2 rangeOfString:@".com"];
-            [save2 deleteCharactersInRange:NSMakeRange(backSlash.location+4, 1)];
+            save = [save stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            save = [save stringByReplacingOccurrencesOfString:@"%5C" withString:@""];
             
             //Save to array
-            arrayOne[k] = save2;
-            k = k +1;
+            [arrayOne addObject:save];
             
             //Delete the original
-            //i = 1;
-            sourceString = [sourceString substringFromIndex:linkEnd.location];
-            //sourceString = [sourceString substringWithRange:NSMakeRange(linkBegin.location + (linkEnd.location - linkBegin.location) , [sourceString length]-(linkBegin.location + (linkEnd.location - linkBegin.location)))];
+            sourceString = [temp substringFromIndex:linkEnd.location];
         }
         //End loop
         else {
@@ -90,7 +86,7 @@
     sourceString2 = [sourceString2 substringFromIndex:linkBegin2.location];
     NSRange linkEnd2 = [sourceString2 rangeOfString:@","];
     linkBegin2 = [sourceString2 rangeOfString:@"full_name"];
-    NSString *photoName = [sourceString2 substringWithRange:NSMakeRange(linkBegin2.location+12, linkEnd2.location-linkBegin2.location-13)];
+    NSString *photoName = [sourceString2 substringWithRange:NSMakeRange(linkBegin2.location+12, linkEnd2.location-linkBegin2.location-14)];
     NSString *folderName = [photoName stringByAppendingString:@"'s Instagram/"];
 
     //Create Folder
@@ -109,21 +105,20 @@
     [label1 display];
     [label2 setStringValue:@""];
     [label2 display];
-    int c = [arrayOne count];
-    for (unsigned int j = 0; j<c; j++) {
+    for (unsigned int j = 0; j<[arrayOne count]; j++) {
         //Make save path and save Image
-        int v = j+1;
-        NSString *lable3value = [NSString stringWithFormat:@"3. Downloading photo %d of %d", v, c];
+        NSString *lable3value = [NSString stringWithFormat:@"3. Downloading photo %d of %lu", j+1, [arrayOne count]];
         [label1 setStringValue:@""];
         [label1 display];
         [label2 setStringValue:@""];
         [label2 display];
         [label3 setStringValue:lable3value];
         [label3 display];
-        NSURL *imageUrl = [NSURL URLWithString:arrayOne[j]];
+        
+        NSURL *imageUrl = [NSURL URLWithString:[arrayOne objectAtIndex:j]];
         NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
         NSString *NewPhotoName = [photoName stringByAppendingString:@" - "];
-        NSString *countString = [NSString stringWithFormat:@"%d", v];
+        NSString *countString = [NSString stringWithFormat:@"%d", j+1];
         NewPhotoName = [NewPhotoName stringByAppendingString:countString];
         NewPhotoName = [NewPhotoName stringByAppendingString:@".jpg"];
         NSString *almost = [FNPath stringByAppendingString:NewPhotoName];
@@ -134,7 +129,7 @@
     NSAlert *done = [[NSAlert alloc] init];
     [done addButtonWithTitle:@"Okay"];
     [done setMessageText:@"Instasave"];
-    [done setInformativeText:[NSString stringWithFormat:@"%d photos saved to your desktop!", c]];
+    [done setInformativeText:[NSString stringWithFormat:@"%lu photos saved to your desktop!", (unsigned long)[arrayOne count]]];
     [done setAlertStyle:NSInformationalAlertStyle];
      NSImage *appIcon = [NSImage imageNamed:@"InstAppIcon"];
     [done setIcon:appIcon];
