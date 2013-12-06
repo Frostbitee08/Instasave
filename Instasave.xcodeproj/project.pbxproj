@@ -17,6 +17,8 @@
 		841F0BFB169118BA00B75AC4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841F0BDB169118B900B75AC4 /* Cocoa.framework */; };
 		841F0C03169118BA00B75AC4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 841F0C01169118BA00B75AC4 /* InfoPlist.strings */; };
 		841F0C06169118BA00B75AC4 /* InstasaveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F0C05169118BA00B75AC4 /* InstasaveTests.m */; };
+		841F0C11169119EF00B75AC4 /* Save.m in Sources */ = {isa = PBXBuildFile; fileRef = 841F0C10169119EF00B75AC4 /* Save.m */; };
+		841F0C2516917A2B00B75AC4 /* InstAppIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841F0C2416917A2B00B75AC4 /* InstAppIcon.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		841F0C02169118BA00B75AC4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		841F0C04169118BA00B75AC4 /* InstasaveTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstasaveTests.h; sourceTree = "<group>"; };
 		841F0C05169118BA00B75AC4 /* InstasaveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstasaveTests.m; sourceTree = "<group>"; };
+		841F0C0F169119EF00B75AC4 /* Save.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Save.h; sourceTree = "<group>"; };
+		841F0C10169119EF00B75AC4 /* Save.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Save.m; sourceTree = "<group>"; };
+		841F0C2416917A2B00B75AC4 /* InstAppIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = InstAppIcon.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +122,8 @@
 				841F0BED169118B900B75AC4 /* AppDelegate.h */,
 				841F0BEE169118B900B75AC4 /* AppDelegate.m */,
 				841F0BF0169118BA00B75AC4 /* MainMenu.xib */,
+				841F0C0F169119EF00B75AC4 /* Save.h */,
+				841F0C10169119EF00B75AC4 /* Save.m */,
 				841F0BE2169118B900B75AC4 /* Supporting Files */,
 			);
 			path = Instasave;
@@ -125,6 +132,7 @@
 		841F0BE2169118B900B75AC4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				841F0C2416917A2B00B75AC4 /* InstAppIcon.jpg */,
 				841F0BE3169118B900B75AC4 /* Instasave-Info.plist */,
 				841F0BE4169118B900B75AC4 /* InfoPlist.strings */,
 				841F0BE7169118B900B75AC4 /* main.m */,
@@ -227,6 +235,7 @@
 				841F0BE6169118B900B75AC4 /* InfoPlist.strings in Resources */,
 				841F0BEC169118B900B75AC4 /* Credits.rtf in Resources */,
 				841F0BF2169118BA00B75AC4 /* MainMenu.xib in Resources */,
+				841F0C2516917A2B00B75AC4 /* InstAppIcon.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +272,7 @@
 			files = (
 				841F0BE8169118B900B75AC4 /* main.m in Sources */,
 				841F0BEF169118B900B75AC4 /* AppDelegate.m in Sources */,
+				841F0C11169119EF00B75AC4 /* Save.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
