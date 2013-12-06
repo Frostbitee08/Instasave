@@ -169,16 +169,20 @@
     
     
     //Make Image Link
-    NSRange match = [forShits rangeOfString: @"http://distilleryimage"];
-    NSRange match1 = [forShits rangeOfString: @".jpg" ""];
-    NSString *temp = [forShits substringWithRange:NSMakeRange(match.location, match1.location - (match.location))];
+    NSRange match = [forShits rangeOfString:@"display_src"];
+    NSString *temp = [forShits substringWithRange:NSMakeRange(match.location, forShits.length - (match.location))];
+    NSRange match1 = [temp rangeOfString: @".jpg"];
+    temp = [temp substringWithRange:NSMakeRange(14, match1.location - 14)];
     NSString *imageLink = [temp stringByAppendingString:@".jpg"];
+    imageLink = [imageLink stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    imageLink = [imageLink stringByReplacingOccurrencesOfString:@"%5C" withString:@""];
     
     //Photo Name
-    NSRange match3 = [forShits rangeOfString:@"Photo by "];
-    NSRange match4 = [forShits rangeOfString:@"&bull"];
-    NSString *userName=[forShits substringWithRange:NSMakeRange(match3.location, match4.location -(match3.location))];
-    NSString *photoName = [userName stringByAppendingString:@"- "];
+    NSRange match3 = [forShits rangeOfString:@"<meta property=\"og:description\" content=\""];
+    temp = [forShits substringWithRange:NSMakeRange(match3.location, forShits.length - (match3.location))];
+    NSRange match4 = [temp rangeOfString:@"'s"];
+    NSString *userName = [temp substringWithRange:NSMakeRange(41, match4.location - 41)];
+    NSString *photoName = [userName stringByAppendingString:@" - "];
     
     NSString *directory = NSHomeDirectory();
     NSString *desktop = [directory stringByAppendingString:@"/Desktop/"];
@@ -203,7 +207,6 @@
             photoNameFinal = [photoNameFinal stringByAppendingString:@".jpg"];
         }
     }
-    NSLog(@"Got ImageLink: %@", imageLink);
 
     
     //Initiate NSFileManager to save image

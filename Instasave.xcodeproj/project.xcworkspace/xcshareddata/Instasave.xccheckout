@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>448B768A-0F00-46CC-BC29-76D10F14047B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Instasave</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5F889748-AFE9-42BD-B5F5-7C8DCE93504B</key>
+		<string>https://github.com/Frostbitee08/Instasave.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Instasave.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5F889748-AFE9-42BD-B5F5-7C8DCE93504B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Frostbitee08/Instasave.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5F889748-AFE9-42BD-B5F5-7C8DCE93504B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5F889748-AFE9-42BD-B5F5-7C8DCE93504B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Instasave</string>
+		</dict>
+	</array>
+</dict>
+</plist>
