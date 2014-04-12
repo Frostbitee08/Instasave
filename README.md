@@ -8,4 +8,5 @@ Instasave is a "rainy day" project. I was annoyed that instagram provides no eas
 
 Simply enter the URL of a public photo or profile and hit return or press "Save".
 ![alt text](http://f.cl.ly/items/3o2q3W2F32252c0r2W3Q/Screen%20Shot%202014-04-12%20at%206.05.06%20PM.png "Screenshot")
+
 ![alt text](http://f.cl.ly/items/3J2p1y3v1E25042O3V2P/Screen%20Shot%202014-04-12%20at%206.05.12%20PM.png "Screenshot")
